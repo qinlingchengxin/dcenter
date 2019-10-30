@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:task="http://www.springframework.org/schema/task" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+            http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+	        http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task.xsd">
+
+    <task:scheduler id="qbScheduler" pool-size="15"/>
+
+    <task:scheduled-tasks scheduler="qbScheduler">
+
+        <task:scheduled ref="buService" method="syncTable" cron="10 */2 * * * ?"/>
+
+        <task:scheduled ref="buService" method="sliceSyncData" cron="15 */2 * * * ?"/>
+
+        <task:scheduled ref="scheduleService" method="syncDownWaitData" cron="20 */2 * * * ?"/>
+
+        <task:scheduled ref="scheduleService" method="syncDownFailedData" cron="30 */2 * * * ?"/>
+
+        <task:scheduled ref="scheduleService" method="packData" cron="40 */2 * * * ?"/>
+
+        <task:scheduled ref="scheduleService" method="syncUpWaitData" cron="45 */2 * * * ?"/>
+
+        <task:scheduled ref="scheduleService" method="syncUpFailedData" cron="55 */2 * * * ?"/>
+
+        <task:scheduled ref="fileService" method="execute" cron="0 */10 * * * ?"/>
+
+        <task:scheduled ref="fileService" method="upFile" cron="20 */11 * * * ?"/>
+
+        <task:scheduled ref="frontDataService" method="upFileData" cron="25 */10 * * * ?"/>
+
+    </task:scheduled-tasks>
+</beans>
