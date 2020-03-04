@@ -9,7 +9,7 @@
     <version>1.0-SNAPSHOT</version>
 
     <properties>
-        <jackson.version>2.4.0</jackson.version>
+        <jackson.version>2.10.3</jackson.version>
         <spring.version>4.2.2.RELEASE</spring.version>
         <compile.version>1.6</compile.version>
         <kettle.version>6.1.0.4-227</kettle.version>
