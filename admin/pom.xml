@@ -10,7 +10,7 @@
 
     <properties>
         <jackson.version>2.4.0</jackson.version>
-        <spring.version>4.2.2.RELEASE</spring.version>
+        <spring.version>5.2.0.RELEASE</spring.version>
         <compile.version>1.6</compile.version>
         <kettle.version>6.1.0.4-227</kettle.version>
     </properties>
